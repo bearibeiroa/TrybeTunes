@@ -135,9 +135,9 @@ Outra diferença importante neste projeto em relação aos anteriores é que voc
 ## Antes de começar a desenvolver
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-project-trybetunes-staging-test.git`.
+  * `git clone git@github.com:tryber/sd-014-b-project-trybetunes-staging-test.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-project-trybetunes-staging-test`
+    * `cd sd-014-b-project-trybetunes-staging-test`
 
 2. Instale as dependências e inicialize o projeto
   * Instale as dependências:
