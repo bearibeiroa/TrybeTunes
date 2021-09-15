@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { createUser } from '../services/userAPI';
+import Loading from '../components/Loading';
 import logo from '../images/logo.png';
 
 import '../styles/Login.css';
@@ -63,7 +64,7 @@ class Login extends Component {
               </button>
             </form>
           </label>
-          {loginOn && <p>Carregando...</p>}
+          {loginOn && <Loading />}
         </div>
       );
     }
