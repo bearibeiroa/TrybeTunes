@@ -3,6 +3,8 @@ import { Redirect } from 'react-router';
 import { createUser } from '../services/userAPI';
 import logo from '../images/logo.png';
 
+import '../styles/Login.css';
+
 class Login extends Component {
   constructor() {
     super();
