@@ -1,20 +1,69 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
+import { createUser } from '../services/userAPI';
 
 class Login extends Component {
-  render() {
-    return (
-      <div data-testid="page-login">
-        <p>Login</p>
-        <form>
-          <input
-            type="text"
-            data-testid="login-name-input"
-            name="login"
-          />
-        </form>
-      </div>
-    );
+  constructor() {
+    super();
+    this.state = {
+      loginOn: false,
+      login: '',
+      validation: true,
+      fetchCreateUser: false,
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
+
+    handleClick = async () => {
+      const { loginOn, login } = this.state;
+      this.setState((prevState) => ({ loginOn: !prevState[loginOn] }));
+      const user = { name: login };
+      await createUser(user);
+      this.setState((prevState) => ({ loginOn: !prevState[loginOn] }));
+      this.setState({ fetchCreateUser: true });
+    }
+
+    handleChange({ target }) {
+      const { name, value } = target;
+      const LoginLength = 3;
+      this.setState({ [name]: value });
+      if (value.length < LoginLength) {
+        (this.setState({ validation: true }));
+      } else {
+        (this.setState({ validation: false }));
+      }
+    }
+
+    render() {
+      const { login, validation, loginOn, fetchCreateUser } = this.state;
+      return (
+        <div data-testid="page-login">
+          { fetchCreateUser && <Redirect to="/search" /> }
+          <p>Login</p>
+          <label htmlFor="login">
+            <form>
+              <input
+                type="text"
+                data-testid="login-name-input"
+                name="login"
+                value={ login }
+                onChange={ this.handleChange }
+              />
+              <button
+                type="button"
+                data-testid="login-submit-button"
+                disabled={ validation }
+                onClick={ this.handleClick }
+              >
+                Entrar
+              </button>
+            </form>
+          </label>
+          {loginOn && <p>Carregando...</p>}
+        </div>
+      );
+    }
 }
 
 export default Login;

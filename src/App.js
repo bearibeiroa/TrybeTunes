@@ -5,8 +5,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Routers />
         <p>TrybeTunes</p>
+        <Routers />
       </div>
     );
   }
