@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { createUser } from '../services/userAPI';
+import logo from '../images/logo.png';
 
 class Login extends Component {
   constructor() {
@@ -38,11 +39,11 @@ class Login extends Component {
     render() {
       const { login, validation, loginOn, fetchCreateUser } = this.state;
       return (
-        <div data-testid="page-login">
-          { fetchCreateUser && <Redirect to="/search" /> }
-          <p>Login</p>
+        <div className="login" data-testid="page-login">
+          {fetchCreateUser && <Redirect to="/search" />}
+          <img src={ logo } alt="Logo TrybeTunes" className="logo" />
           <label htmlFor="login">
-            <form>
+            <form className="login-form">
               <input
                 type="text"
                 data-testid="login-name-input"
