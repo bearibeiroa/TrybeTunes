@@ -5,6 +5,13 @@ class Login extends Component {
     return (
       <div data-testid="page-login">
         <p>Login</p>
+        <form>
+          <input
+            type="text"
+            data-testid="login-name-input"
+            name="login"
+          />
+        </form>
       </div>
     );
   }
