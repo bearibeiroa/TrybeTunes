@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import '../styles/style.css';
+
 class AlbumCards extends Component {
   render() {
     const {
@@ -13,17 +15,19 @@ class AlbumCards extends Component {
     } = this.props;
 
     return (
-      <Link
-        to={ `/album/${collectionId}` }
-        data-testid={ `link-to-album-${collectionId}` }
-      >
-        <img
-          src={ artworkUrl100 }
-          alt={ collectionName }
-        />
-        <h4>{collectionName}</h4>
-        <p>{artistName}</p>
-      </Link>
+      <span className="album-card">
+        <Link
+          to={ `/album/${collectionId}` }
+          data-testid={ `link-to-album-${collectionId}` }
+        >
+          <img
+            src={ artworkUrl100 }
+            alt={ collectionName }
+          />
+          <h4>{collectionName}</h4>
+          <p>{artistName}</p>
+        </Link>
+      </span>
     );
   }
 }

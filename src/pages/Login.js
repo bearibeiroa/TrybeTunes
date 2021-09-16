@@ -4,7 +4,7 @@ import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import logo from '../images/logo.png';
 
-import '../styles/Login.css';
+import '../styles/style.css';
 
 class Login extends Component {
   constructor() {

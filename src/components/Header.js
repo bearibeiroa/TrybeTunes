@@ -4,7 +4,7 @@ import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import logo from '../images/skip-image.png';
 
-import '../styles/Header.css';
+import '../styles/style.css';
 
 class Header extends Component {
   constructor() {
@@ -34,7 +34,7 @@ class Header extends Component {
         <header data-testid="header-component">
           <div data-testid="header-user-name" className="header">
             <img src={ logo } alt="Logo TrybeTunes" className="logo" />
-            <h4>{ `Olá ${userName}`}</h4>
+            <h4 className="username">{ `Olá ${userName}`}</h4>
           </div>
           <nav className="navbar">
             <Link
