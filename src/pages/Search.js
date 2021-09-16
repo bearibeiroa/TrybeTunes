@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
+import AlbumCards from '../components/AlbumCards';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import '../styles/Header.css';
 
 class Search extends Component {
@@ -7,9 +10,14 @@ class Search extends Component {
     super();
     this.state = {
       search: '',
+      loading: false,
+      searchOk: false,
+      artistFetched: [],
+      lastSearch: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.albumSearchResult = this.albumSearchResult.bind(this);
   }
 
   handleChange({ target }) {
@@ -19,8 +27,47 @@ class Search extends Component {
     });
   }
 
-  render() {
+  handleClick = async () => {
+    this.setState({
+      loading: true,
+    });
+
     const { search } = this.state;
+    const result = await searchAlbumsAPI(search);
+
+    this.setState({
+      search: '',
+      loading: false,
+      searchOk: true,
+      artistFetched: result,
+      lastSearch: search,
+    });
+  }
+
+  albumSearchResult() {
+    const { artistFetched, lastSearch } = this.state;
+
+    if (artistFetched.length === 0) {
+      return (
+        <>
+          <h3>{`Resultado de álbuns de: ${lastSearch}`}</h3>
+          <h2>Nenhum álbum foi encontrado</h2>
+        </>
+      );
+    }
+    return (
+      <>
+        <h3>{`Resultado de álbuns de: ${lastSearch}`}</h3>
+        <section>
+          { artistFetched.map((album) => (
+            <AlbumCards key={ album.collectionId } album={ album } />)) }
+        </section>
+      </>
+    );
+  }
+
+  render() {
+    const { search, loading, searchOk } = this.state;
     const SearchLength = 2;
     return (
       <div data-testid="page-search">
@@ -39,10 +86,12 @@ class Search extends Component {
               type="button"
               data-testid="search-artist-button"
               disabled={ search.length < SearchLength }
-              onClick={ this.handleChange }
+              onClick={ this.handleClick }
             >
               Pesquisar
             </button>
+            { loading && <Loading /> }
+            { searchOk && this.albumSearchResult() }
           </label>
         </form>
       </div>
