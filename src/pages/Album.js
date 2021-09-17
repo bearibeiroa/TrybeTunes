@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import { addSong } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class Album extends Component {
     this.state = {
       loading: true,
       musicList: [],
+      esperaFavorito: false,
     };
 
     this.musicListResult = this.musicListResult.bind(this);
@@ -19,6 +21,16 @@ class Album extends Component {
 
   componentDidMount() {
     this.fetchMusicList();
+  }
+
+  handleChange = async (event) => {
+    this.setState({ esperaFavorito: true });
+    const favorito = event.target.value;
+    const { musicList } = this.state;
+
+    const objFavorito = musicList.find((song) => song.trackId === Number(favorito));
+    await addSong(objFavorito);
+    this.setState({ esperaFavorito: false });
   }
 
   fetchMusicList = async () => {
@@ -35,23 +47,34 @@ class Album extends Component {
     const { musicList } = this.state;
     return (
       <section>
+        <div>
+          <img
+            src={ musicList[0].artworkUrl100 }
+            alt={ musicList[0].collectionName }
+          />
+        </div>
         <h3 data-testid="album-name">{musicList[0].collectionName}</h3>
         <h4 data-testid="artist-name">{musicList[0].artistName}</h4>
         {musicList.slice(1).map((music) => (
-          <MusicCard key={ music.trackId } music={ music } />
+          <MusicCard
+            key={ music.trackId }
+            music={ music }
+            handleChange={ this.handleChange }
+          />
         ))}
       </section>
     );
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, esperaFavorito } = this.state;
 
     return (
       <div data-testid="page-album">
         <Header />
         <p>Album</p>
-        { loading ? <Loading /> : this.musicListResult() }
+        { esperaFavorito && <Loading /> }
+        {loading ? <Loading /> : this.musicListResult()}
       </div>
     );
   }
