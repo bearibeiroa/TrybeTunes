@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 export default class Loading extends Component {
   render() {
     return (
-      <div>
-        <h2>Carregando...</h2>
+      <div className="loading-message">
+        <h1>Carregando...</h1>
       </div>
     );
   }
