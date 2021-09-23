@@ -12,11 +12,9 @@ class Login extends Component {
     this.state = {
       loginOn: false,
       login: '',
-      validation: true,
+      disabled: true,
       fetchCreateUser: false,
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
     handleClick = async () => {
@@ -28,23 +26,25 @@ class Login extends Component {
       this.setState({ fetchCreateUser: true });
     }
 
-    handleChange({ target }) {
+    handleChange = ({ target }) => {
       const { name, value } = target;
       const LoginLength = 3;
       this.setState({ [name]: value });
       if (value.length < LoginLength) {
-        (this.setState({ validation: true }));
+        (this.setState({
+          disabled: true }));
       } else {
-        (this.setState({ validation: false }));
+        (this.setState({ disabled: false }));
       }
     }
 
     render() {
-      const { login, validation, loginOn, fetchCreateUser } = this.state;
+      const { login, disabled, loginOn, fetchCreateUser } = this.state;
       return (
         <div className="login" data-testid="page-login">
           {fetchCreateUser && <Redirect to="/search" />}
           <img src={ logo } alt="Logo TrybeTunes" className="logo" />
+          <div>{loginOn && <Loading />}</div>
           <label htmlFor="login">
             <form className="login-form">
               <input
@@ -57,14 +57,13 @@ class Login extends Component {
               <button
                 type="button"
                 data-testid="login-submit-button"
-                disabled={ validation }
+                disabled={ disabled }
                 onClick={ this.handleClick }
               >
                 Entrar
               </button>
             </form>
           </label>
-          {loginOn && <Loading />}
         </div>
       );
     }

@@ -3,10 +3,15 @@ body {
   font-family: Verdana , Geneva , Tahoma , sans-serif;
 }
 
+.loading-message {
+  text-align: center;
+}
+
 .login {
   display: flex;
   flex-direction: column;
   padding: 100px;
+  text-align: center;
 }
 
 .logo {
