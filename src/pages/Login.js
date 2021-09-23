@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
+import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import logo from '../images/logo.png';
@@ -19,11 +19,11 @@ class Login extends Component {
 
     handleClick = async () => {
       const { loginOn, login } = this.state;
+      const { history } = this.props;
       this.setState((prevState) => ({ loginOn: !prevState[loginOn] }));
       const user = { name: login };
       await createUser(user);
-      this.setState((prevState) => ({ loginOn: !prevState[loginOn] }));
-      this.setState({ fetchCreateUser: true });
+      history.push('/search');
     }
 
     handleChange = ({ target }) => {
@@ -39,12 +39,11 @@ class Login extends Component {
     }
 
     render() {
-      const { login, disabled, loginOn, fetchCreateUser } = this.state;
+      const { login, disabled, loginOn } = this.state;
+      if (loginOn) return <Loading />;
       return (
         <div className="login" data-testid="page-login">
-          {fetchCreateUser && <Redirect to="/search" />}
           <img src={ logo } alt="Logo TrybeTunes" className="logo" />
-          <div>{loginOn && <Loading />}</div>
           <label htmlFor="login">
             <form className="login-form">
               <input
@@ -68,5 +67,11 @@ class Login extends Component {
       );
     }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
 
 export default Login;
