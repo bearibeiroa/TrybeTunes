@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import logo from '../images/skip-image.png';
+import userIcon from '../images/account_circle_.png';
 
 import '../styles/style.css';
 
@@ -32,9 +33,11 @@ class Header extends Component {
     return (
       <section>
         <header data-testid="header-component">
-          <div data-testid="header-user-name" className="header">
-            <img src={ logo } alt="Logo TrybeTunes" className="logo" />
-            <h4 className="username">{ `Olá ${userName}`}</h4>
+          <div data-testid="header-user-name" className="top-header">
+            <img src={ logo } alt="Logo TrybeTunes" />
+            <div className="username">
+              <h4>{userName}</h4>
+            </div>
           </div>
           <nav className="navbar">
             <Link

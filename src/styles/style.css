@@ -21,7 +21,6 @@ body {
 .logo {
   margin: auto;
   margin-bottom: 50px;
-  max-width: 208px;
 }
 
 .login-form {
@@ -48,15 +47,28 @@ input {
 }
 
 
-.header {
+header {
   background-color: #023031;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+}
 
+.top-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .username {
-  color: white;
+  background-color: white;
+  border-radius: 30px;
+  color: rgb(43, 43, 43);
+  display: flex;
+  margin-right: 10px;
+  padding: 0 30px;
+
 }
 
 .navbar {
@@ -64,7 +76,7 @@ input {
   background-color: #f0f2f5;
   display: flex;
   height: 70px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .nav-item {
