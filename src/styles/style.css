@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #fafafa;
   font-family: Verdana , Geneva , Tahoma , sans-serif;
@@ -242,6 +247,16 @@ button {
   .top-header {
     display: flex;
     width: 100%;
+  }
+
+  .navbar {
+    display: flex;
+    flex-shrink: initial;
+  }
+
+  .player-container {
+    display: flex;
+    flex-direction: column;
   }
 }
 

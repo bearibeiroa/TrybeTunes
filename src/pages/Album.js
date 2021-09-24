@@ -16,8 +16,6 @@ class Album extends Component {
       musicList: [],
       esperaFavorito: false,
     };
-
-    this.musicListResult = this.musicListResult.bind(this);
   }
 
   componentDidMount() {
@@ -44,7 +42,7 @@ class Album extends Component {
     });
   }
 
-  musicListResult() {
+  musicListResult = () => {
     const { musicList } = this.state;
     return (
       <section className="player-container">
