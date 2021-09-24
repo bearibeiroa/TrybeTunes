@@ -131,10 +131,30 @@ button {
 .search-form button {
   border-radius: 2px;
   box-shadow: none;
-  height: 45px;
+  height: 47px;
   margin-right: 15px;
   margin-top: 90px;
   width: 134px;
+}
+
+.album-card-container {
+  display: flex;
+  flex-basis: 70%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.album-card {
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid #e1e5eb;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06) , 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin: 16px;
+  width: 260px;
 }
 
 

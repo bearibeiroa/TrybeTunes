@@ -36,7 +36,7 @@ class Header extends Component {
           <div data-testid="header-user-name" className="top-header">
             <img src={ logo } alt="Logo TrybeTunes" />
             <span className="username">
-              <img src={ userIcon } alt="Logo TrybeTunes" width="35" />
+              <img src={ userIcon } alt="Ícone de usuário" width="35" />
               {userName}
             </span>
           </div>

@@ -15,12 +15,9 @@ class Search extends Component {
       artistFetched: [],
       lastSearch: '',
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.albumSearchResult = this.albumSearchResult.bind(this);
   }
 
-  handleChange({ target }) {
+  handleChange = ({ target }) => {
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -44,7 +41,7 @@ class Search extends Component {
     });
   }
 
-  albumSearchResult() {
+  albumSearchResult = () => {
     const { artistFetched, lastSearch } = this.state;
 
     if (artistFetched.length === 0) {
@@ -58,7 +55,7 @@ class Search extends Component {
     return (
       <>
         <h3>{`Resultado de álbuns de: ${lastSearch}`}</h3>
-        <section className="album-card">
+        <section className="album-card-container">
           { artistFetched.map((album) => (
             <AlbumCards key={ album.collectionId } album={ album } />)) }
         </section>
@@ -91,9 +88,9 @@ class Search extends Component {
               Pesquisar
             </button>
             { loading && <Loading /> }
-            { searchOk && this.albumSearchResult() }
           </label>
         </form>
+        { searchOk && this.albumSearchResult() }
       </div>
     );
   }

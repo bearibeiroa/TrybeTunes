@@ -23,6 +23,7 @@ class AlbumCards extends Component {
           <img
             src={ artworkUrl100 }
             alt={ collectionName }
+            width="260"
           />
           <h4>{collectionName}</h4>
           <p>{artistName}</p>
@@ -33,7 +34,7 @@ class AlbumCards extends Component {
 }
 
 AlbumCards.propTypes = {
-  album: PropTypes.objectOf({
+  album: PropTypes.shape({
     collectionId: PropTypes.number,
     artworkUrl100: PropTypes.string,
     collectionName: PropTypes.string,
