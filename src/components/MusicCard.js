@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import '../styles/style.css';
+
 class MusicCard extends Component {
   render() {
     const { music: { trackName, previewUrl, trackId } } = this.props;
     const { handleChange } = this.props;
 
     return (
-      <div>
+      <div className="music-player-card">
         <p>{trackName}</p>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
@@ -19,6 +21,7 @@ class MusicCard extends Component {
         <label data-testid={ `checkbox-music-${trackId}` } htmlFor={ trackId }>
           <form>
             <input
+              className="tw-heart"
               id={ trackId }
               type="checkbox"
               value={ trackId }
@@ -26,7 +29,6 @@ class MusicCard extends Component {
             />
           </form>
         </label>
-
       </div>
     );
   }

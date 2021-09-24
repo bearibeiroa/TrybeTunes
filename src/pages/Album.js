@@ -5,6 +5,7 @@ import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { addSong } from '../services/favoriteSongsAPI';
+import '../styles/style.css';
 
 class Album extends Component {
   constructor() {
@@ -46,22 +47,25 @@ class Album extends Component {
   musicListResult() {
     const { musicList } = this.state;
     return (
-      <section>
-        <div>
+      <section className="player-container">
+        <div className="player-left-side">
           <img
             src={ musicList[0].artworkUrl100 }
             alt={ musicList[0].collectionName }
+            width="200"
           />
+          <h3 data-testid="album-name">{musicList[0].collectionName}</h3>
+          <h4 data-testid="artist-name">{musicList[0].artistName}</h4>
         </div>
-        <h3 data-testid="album-name">{musicList[0].collectionName}</h3>
-        <h4 data-testid="artist-name">{musicList[0].artistName}</h4>
-        {musicList.slice(1).map((music) => (
-          <MusicCard
-            key={ music.trackId }
-            music={ music }
-            handleChange={ this.handleChange }
-          />
-        ))}
+        <div className="player-right-side">
+          {musicList.slice(1).map((music) => (
+            <MusicCard
+              key={ music.trackId }
+              music={ music }
+              handleChange={ this.handleChange }
+            />
+          ))}
+        </div>
       </section>
     );
   }
@@ -72,7 +76,6 @@ class Album extends Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <p>Album</p>
         { esperaFavorito && <Loading /> }
         {loading ? <Loading /> : this.musicListResult()}
       </div>
