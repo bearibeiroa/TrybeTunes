@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import logo from '../images/skip-image.png';
-import userIcon from '../images/account_circle_.png';
 
 import '../styles/style.css';
 
