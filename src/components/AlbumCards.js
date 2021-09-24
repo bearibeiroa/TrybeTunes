@@ -25,8 +25,10 @@ class AlbumCards extends Component {
             alt={ collectionName }
             width="260"
           />
-          <h4>{collectionName}</h4>
-          <p>{artistName}</p>
+          <div className="album-card-info">
+            <h4>{collectionName}</h4>
+            <p>{artistName}</p>
+          </div>
         </Link>
       </span>
     );

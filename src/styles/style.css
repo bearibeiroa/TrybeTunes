@@ -146,7 +146,7 @@ button {
 
 .album-card {
   align-items: flex-start;
-  background: #fff;
+  background: white;
   border: 1px solid #e1e5eb;
   border-radius: 6px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06) , 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -155,6 +155,15 @@ button {
   height: auto;
   margin: 16px;
   width: 260px;
+}
+
+.album-card-info {
+  padding: 20px;
+}
+
+.album-card > a {
+  color: #2a2b2b;
+  text-decoration: none;
 }
 
 
