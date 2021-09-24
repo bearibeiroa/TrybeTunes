@@ -11,7 +11,9 @@ body {
 }
 
 .loading-message {
-  font-size: 40px;
+  color: #2a2b2b;
+  font-family: Epilogue , Verdana , Geneva , Tahoma , sans-serif;
+  font-size: 60px;
   font-weight: 100;
   margin-top: auto;
   text-align: center;
@@ -45,7 +47,6 @@ input {
   top: 525px;
   width: auto;
 }
-
 
 header {
   background-color: #023031;
@@ -83,6 +84,7 @@ header {
   align-items: center;
   background-color: #f0f2f5;
   display: flex;
+  font-family: Epilogue , Verdana , Geneva , Tahoma , sans-serif;
   height: 70px;
   justify-content: space-between;
 }
@@ -112,7 +114,6 @@ header {
   margin-right: 15px;
   width: 519px;
 }
-
 
 button {
   background: #003be5;
