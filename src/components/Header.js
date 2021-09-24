@@ -30,7 +30,7 @@ class Header extends Component {
   render() {
     const { userName, loading } = this.state;
     return (
-      <section>
+      <>
         <header data-testid="header-component">
           <div data-testid="header-user-name" className="top-header">
             <img src={ logo } alt="Logo TrybeTunes" />
@@ -63,7 +63,7 @@ class Header extends Component {
           </nav>
         </header>
         <h1>{loading && <Loading />}</h1>
-      </section>
+      </>
     );
   }
 }
