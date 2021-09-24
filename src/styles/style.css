@@ -105,7 +105,12 @@ header {
 .search-form {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
   width: 100%;
+}
+
+.search-message-result h3 {
+  margin-left: 65px;
 }
 
 .search-form input {
