@@ -5,9 +5,8 @@ import '../styles/style.css';
 
 class MusicCard extends Component {
   render() {
-    const { music: { trackName, previewUrl, trackId } } = this.props;
-    const { handleChange } = this.props;
-
+    const { music:
+      { trackName, previewUrl, trackId }, handleChange, checked } = this.props;
     return (
       <div className="music-player-card">
         <p>{trackName}</p>
@@ -25,6 +24,7 @@ class MusicCard extends Component {
               type="checkbox"
               value={ trackId }
               onChange={ handleChange }
+              checked={ checked }
             />
           </form>
         </label>
@@ -41,6 +41,7 @@ MusicCard.propTypes = {
     trackId: PropTypes.number,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
+  checked: PropTypes.func.isRequired,
 };
 
 export default MusicCard;
