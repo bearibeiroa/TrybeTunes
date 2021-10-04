@@ -87,9 +87,7 @@ class Album extends Component {
     };
 
     render() {
-      const { loading, esperaFavorito, favoritos } = this.state;
-      console.log(favoritos);
-
+      const { loading, esperaFavorito } = this.state;
       return (
         <div data-testid="page-album">
           <Header />
