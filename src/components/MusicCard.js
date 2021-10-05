@@ -27,6 +27,7 @@ class MusicCard extends Component {
               checked={ checked }
             />
           </form>
+          Favorita
         </label>
       </div>
     );
