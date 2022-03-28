@@ -12,16 +12,9 @@ Este projeto é uma aplicação capaz de reproduzir músicas das mais variadas b
   - Ver o perfil da pessoa logada;
   - Editar o perfil da pessoa logada;
 
-
-### Protótipo do projeto
-Você pode acessar um protótipo no link abaixo:
-
-https://www.figma.com/file/BDQgAJvOe4KNUjmrYh5t68/TrybeTunes-Figma
-
 --
 
-# Habilidades
-Neste projeto, verificamos se voce é capaz de:
+## Habilidades
 
   * Fazer requisições e consumir dados vindos de uma `API`;
 
@@ -39,4 +32,3 @@ Neste projeto, verificamos se voce é capaz de:
 
   * Criar links de navegação na aplicação com o componente `Link`;
   
---
