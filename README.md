@@ -12,7 +12,6 @@ Este projeto é uma aplicação capaz de reproduzir músicas das mais variadas b
   - Ver o perfil da pessoa logada;
   - Editar o perfil da pessoa logada;
 
---
 
 ## Habilidades
 
