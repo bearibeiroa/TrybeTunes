@@ -126,7 +126,7 @@ Outra diferença importante neste projeto em relação aos anteriores é que voc
 
   - Serão `2` dias de projeto.
   
-  - Data de entrega para avaliação final do projeto: `22/09/2021 - 14:00h`.
+  - Data de entrega para avaliação final do projeto: `24/09/2021 - 14:00h`.
 
 ---
 
@@ -363,7 +363,7 @@ Dentro do componente `Login`, que é renderizado na rota `/`, crie um formulári
 
   * Crie um botão com o texto `Entrar`. Este botão deverá ter o atributo `data-testid="login-submit-button"`.
 
-  * O botão para entrar só deve ser habilitado caso o nome digitado tenha mais de 3 caracteres.
+  * O botão para entrar só deve ser habilitado caso o nome digitado tenha 3 ou mais caracteres.
 
   * Ao clicar no botão `Entrar`, utilize a função `createUser` da `userAPI` para salvar o nome digitado. A função `createUser` espera receber como argumento um objeto com as informações da pessoa: 
   ```
@@ -555,15 +555,13 @@ Agora que está tudo pronto, você poderá exibir a lista de músicas do álbum 
 ## 8. Crie o mecanismo para adicionar músicas na lista de músicas favoritas
 Você já consegue listar as músicas dos álbuns, nessa etapa você poderá marcar quais são as músicas que você mais gosta.
 
-  * No componente `MusicCard`, crie um input do tipo `checkbox` para marcar as músicas favoritas. Esse input deve conter uma `label`, e a `label` deve ter o atributo ```data-testid={`checkbox-music-${trackId}`}```, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
+  * No componente `MusicCard`, crie um input do tipo `checkbox` para marcar as músicas favoritas. Esse input deve conter uma `label` com o texto `Favorita` e, o input, deve possuir o atributo ```data-testid={`checkbox-music-${trackId}`}```, onde `trackId` é a propriedade `trackId` do objeto recebido pela API.
 
   * Para adicionar uma música a lista de favoritas, utilize a função `addSong` da `favoriteSongsAPI`. Você deve passar para essa função um objeto no mesmo formato que você recebe da API `getMusics`.
 
   * Enquanto aguarda o retorno da função `addSong`, renderize a mensagem de `Carregando...`.
 
-  * Ao clicar em uma música que já está marcada como favorita, ela deve ser removida da lista de músicas favoritas. Para isso você deve usar a função `removeSong` da `favoriteSongsAPI`. Essa API espera receber um objeto no mesmo formato que foi passado anteriormente para a função `addSong`.
-
-  * Enquanto aguarda o retorno da função `removeSong`, renderize a mensagem de `Carregando...`.
+  * Ao entrar na página, utilize a função `getFavoriteSongs` da `favoriteSongsAPI` para recuperar a lista de músicas favoritas e marque as músicas que já foram favoritadas.
 
 ### O que será verificado
 - Será validado se existe um checkbox para cada música da lista;
