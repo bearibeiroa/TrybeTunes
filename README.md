@@ -12,7 +12,6 @@ Este projeto é uma aplicação capaz de reproduzir músicas das mais variadas b
   - Ver o perfil da pessoa logada;
   - Editar o perfil da pessoa logada;
 
-
 ## Habilidades
 
   * Fazer requisições e consumir dados vindos de uma `API`;
@@ -21,7 +20,6 @@ Este projeto é uma aplicação capaz de reproduzir músicas das mais variadas b
 
   * Utilizar a função `setState` de forma a garantir que um determinado código só é executado após o estado ser atualizado
   
-  * Utilizar o componente `BrowserRouter` corretamente;
 
   * Criar rotas, mapeando o caminho da URL com o componente correspondente, via `Route`;
 
